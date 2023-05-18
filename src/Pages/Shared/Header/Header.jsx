@@ -10,11 +10,11 @@ const Header = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
+      <li>
+        <Link to="/allToys">All Toys</Link>
+      </li>
       {user && (
         <div className="flex">
-          <li>
-            <Link to="/allToys">All Toys</Link>
-          </li>
           <li>
             <Link to="/myToys">My Toys</Link>
           </li>
@@ -44,11 +44,11 @@ const Header = () => {
 
           <Link>
             <div
-              className="tooltip tooltip-bottom tooltip-warning"
+              className="tooltip tooltip-bottom "
               data-tip={user.displayName}
             >
               <img
-                className="w-12 h-12 rounded-full"
+                className="w-12 h-12 object-contain rounded-full"
                 src={user.photoURL}
                 alt=""
               />

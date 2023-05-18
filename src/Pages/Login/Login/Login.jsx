@@ -1,34 +1,42 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const { signInUser, googleSignInUser } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    signInUser(email, password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-    });
+    signInUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error.message));
   };
 
   const handleGoogleLogin = () => {
     googleSignInUser()
-      .then(result => {
+      .then((result) => {
         const googLogged = result.user;
-        console.log(googLogged)
-      });
+        console.log(googLogged);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error.message));
   };
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-74.81px)] bg-gray-100">
       <div className="bg-white w-96 shadow-lg rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-6">Login</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label htmlFor="email" className="block font-medium">
               Email
