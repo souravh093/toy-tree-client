@@ -90,11 +90,3 @@ const Category = () => {
 };
 
 export default Category;
-
-const toys = [
-    {
-        "name": "Captain America",
-        "url" : "https://example.com/hello.jpg",
-        ""
-    }
-]
