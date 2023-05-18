@@ -16,6 +16,14 @@ const Login = () => {
       console.log(loggedUser);
     });
   };
+
+  const handleGoogleLogin = () => {
+    googleSignInUser()
+      .then(result => {
+        const googLogged = result.user;
+        console.log(googLogged)
+      });
+  };
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-74.81px)] bg-gray-100">
       <div className="bg-white w-96 shadow-lg rounded-lg p-6">
@@ -56,19 +64,13 @@ const Login = () => {
             <p className="mx-4 text-gray-500">or</p>
             <hr className="w-2/5 border-gray-300" />
           </div>
-          <button
-            className="bg-red-500 text-white px-4 py-2 rounded-md w-full"
-            onClick={() => {
-                googleSignInUser()
-                    .then(result => {
-                        const googleLogged = result.user;
-                        console.log(googleLogged)
-                    })
-            }}
-          >
-            Sign in with Google
-          </button>
         </form>
+        <button
+          className="bg-red-500 text-white px-4 py-2 rounded-md w-full"
+          onClick={handleGoogleLogin}
+        >
+          Sign in with Google
+        </button>
         <p className="mt-4 text-sm">
           Don not have an account?{" "}
           <Link to="/register" className="text-blue-500 underline">

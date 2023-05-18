@@ -38,8 +38,9 @@ const AddToy = () => {
         body: JSON.stringify(newToy)
     })
         .then(res => res.json())
-        .catch(data => {
+        .then(data => {
             console.log(data)
+            form.reset()
         })
   };
   return (
