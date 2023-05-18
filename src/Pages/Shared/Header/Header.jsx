@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Header = () => {
+  const { user, logoutUser } = useContext(AuthContext);
   const navigation = (
     <>
       <li>
@@ -24,20 +26,39 @@ const Header = () => {
   );
   const authenticationMenu = (
     <>
-      <Link
-        className="text-lg rounded-md text-gray-100 py-2 px-5 bg-orange-400 border-none hover:bg-orange-600 mr-5"
-        to="/login"
-      >
-        Login
-      </Link>
+      {user ? (
+        <div className="flex items-center">
+          <Link className="text-lg rounded-md text-gray-100 py-2 px-5 bg-orange-400 border-none hover:bg-orange-600 mr-5">
+            <button
+              onClick={() => {
+                logoutUser().then();
+              }}
+            >
+              Logout
+            </button>
+          </Link>
 
-      <Link className="text-lg rounded-md text-gray-100 py-2 px-5 bg-orange-400 border-none hover:bg-orange-600 mr-5">
-        <button>Logout</button>
-      </Link>
-
-      <Link className="w-10">
-        <img src={logo} alt="" />
-      </Link>
+          <Link>
+            <div
+              className="tooltip tooltip-bottom tooltip-warning"
+              data-tip={user.displayName}
+            >
+              <img
+                className="w-12 h-12 rounded-full"
+                src={user.photoURL}
+                alt=""
+              />
+            </div>
+          </Link>
+        </div>
+      ) : (
+        <Link
+          className="text-lg rounded-md text-gray-100 py-2 px-5 bg-orange-400 border-none hover:bg-orange-600 mr-5"
+          to="/login"
+        >
+          Login
+        </Link>
+      )}
     </>
   );
   return (
@@ -70,7 +91,9 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-2">
           <img className="w-10" src={logo} alt="" />
-          <h2 className="font-bold text-3xl text-gray-700">ToyTree</h2>
+          <Link to="/">
+            <h2 className="font-bold text-3xl text-gray-700">ToyTree</h2>
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">

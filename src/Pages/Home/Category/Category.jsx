@@ -1,91 +1,119 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const Category = () => {
-    const categories = [
-        { id: 1, name: 'Math Toys' },
-        { id: 2, name: 'Language Toys' },
-        { id: 3, name: 'Engineering Toys' },
-      ];
-    
-      const subcategories = [
-        { id: 1, categoryId: 1, name: 'Subcategory 1' },
-        { id: 2, categoryId: 1, name: 'Subcategory 2' },
-        { id: 3, categoryId: 2, name: 'Subcategory 1' },
-        { id: 4, categoryId: 2, name: 'Subcategory 2' },
-        { id: 5, categoryId: 3, name: 'Subcategory 1' },
-        { id: 6, categoryId: 3, name: 'Subcategory 2' },
-      ];
-    
-      const products = [
-        {
-          id: 1,
-          subcategoryId: 1,
-          name: 'Toy 1',
-          image: 'toy1.jpg',
-          price: 19.99,
-          rating: 4.5,
-        },
-        {
-          id: 2,
-          subcategoryId: 1,
-          name: 'Toy 2',
-          image: 'toy2.jpg',
-          price: 24.99,
-          rating: 4.8,
-        },
-        // ... and so on
-      ];
   return (
-    <Tabs>
-      <TabList>
-        {categories.map((category) => (
-          <Tab key={category.id}>{category.name}</Tab>
-        ))}
-      </TabList>
+    <div className="px-52">
+      <div className="text-center mb-10">
+        <h2 className="text-6xl font-bold mb-3 text-gray-600">Toys Category</h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Here some discount to our toys you can buy this toys. Discount date is
+          available only 2 more days buy now{" "}
+        </p>
+      </div>
+      <Tabs forceRenderTabPanel defaultIndex={1}>
+        <TabList className="my-6 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+          <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow text-2xl font-bold">
+            Transformers
+          </Tab>
+          <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow text-2xl font-bold">
+            Avenger
+          </Tab>
+          <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow text-2xl font-bold">
+            Star Wars
+          </Tab>
+        </TabList>
 
-      {categories.map((category) => (
-        <TabPanel key={category.id}>
-          <div className="grid grid-cols-2 gap-4">
-            {subcategories
-              .filter((subcategory) => subcategory.categoryId === category.id)
-              .map((subcategory) => (
-                <div key={subcategory.id}>
-                  <h3 className="text-lg font-bold mb-2">{subcategory.name}</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {products
-                      .filter(
-                        (product) => product.subcategoryId === subcategory.id
-                      )
-                      .slice(0, 2) // Displaying only the first 2 toys
-                      .map((product) => (
-                        <div key={product.id}>
-                          <div className="border border-gray-300 p-4">
-                            <img
-                              src={product.image}
-                              alt={product.name}
-                              className="w-full h-auto mb-2"
-                            />
-                            <h4 className="font-bold mb-1">{product.name}</h4>
-                            <p className="text-gray-500 mb-1">
-                              ${product.price}
-                            </p>
-                            <p className="text-gray-500 mb-2">
-                              Rating: {product.rating}
-                            </p>
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded">
-                              View Details
-                            </button>
-                          </div>
-                        </div>
-                      ))}
+        <TabPanel>
+          <Tabs forceRenderTabPanel>
+            <TabList className="my-6 flex flex-col sm:flex-row sm:justify-between sm:items-center px-24">
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Autobots
+              </Tab>
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Decepticons
+              </Tab>
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Dinobots
+              </Tab>
+            </TabList>
+            <TabPanel>
+              <div className="grid grid-cols-2 px-32">
+                <div className="card w-full bg-base-100 shadow-xl">
+                  <figure>
+                    <img
+                      src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Shoes!</h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div className="card-actions justify-end">
+                      <button className="btn btn-primary">Buy Now</button>
+                    </div>
                   </div>
                 </div>
-              ))}
-          </div>
+                <div className="card w-full bg-base-100 shadow-xl">
+                  <figure>
+                    <img
+                      src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Shoes!</h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div className="card-actions justify-end">
+                      <button className="btn btn-primary">Buy Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </TabPanel>
+            <TabPanel>2</TabPanel>
+            <TabPanel>3</TabPanel>
+          </Tabs>
         </TabPanel>
-      ))}
-    </Tabs>
+        <TabPanel>
+          <Tabs forceRenderTabPanel>
+            <TabList className="my-6 flex flex-col sm:flex-row sm:justify-between sm:items-center px-24">
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Superheroes
+              </Tab>
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Avengers Team
+              </Tab>
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Marvel Heroes
+              </Tab>
+            </TabList>
+            <TabPanel>1</TabPanel>
+            <TabPanel>2</TabPanel>
+            <TabPanel>3</TabPanel>
+          </Tabs>
+        </TabPanel>
+        <TabPanel>
+          <Tabs forceRenderTabPanel>
+            <TabList className="my-6 flex flex-col sm:flex-row sm:justify-between sm:items-center px-24">
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Jedi Knights
+              </Tab>
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Rebel Alliance
+              </Tab>
+              <Tab className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow">
+                Galactic Heroes
+              </Tab>
+            </TabList>
+            <TabPanel>1</TabPanel>
+            <TabPanel>2</TabPanel>
+            <TabPanel>3</TabPanel>
+          </Tabs>
+        </TabPanel>
+      </Tabs>
+    </div>
   );
 };
 
