@@ -7,8 +7,6 @@ const Category = () => {
 
   const [data, setData] = useState([]);
   const slicData = data.slice(0, 2)
-  const [cat1, setCat1] = useState([]);
-  const displayCat1 = cat1.slice(0, 2);
   const [cat2, setCat2] = useState([]);
   const displayCat2 = cat2.slice(0, 2);
   const [cat3, setCat3] = useState([]);
@@ -29,15 +27,6 @@ const Category = () => {
     fetchData(); // Call the fetch data function when the component mounts
   }, []);
 
-  const category1 = async (categoryName) => {
-    try {
-      const res = await fetch(`http://localhost:5000/category/${categoryName}`);
-      const data = await res.json();
-      setCat1(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
   const category2 = async (categoryName) => {
     try {
       const res = await fetch(`http://localhost:5000/category/${categoryName}`);
@@ -77,7 +66,6 @@ const Category = () => {
       <Tabs defaultIndex={0}>
         <TabList className="my-6 flex flex-col sm:flex-row sm:justify-between sm:items-center">
           <Tab
-            onClick={() => category1("transformer")}
             className="cursor-pointer py-4 px-8 bg-grey-background border border-grey-intermediate flex flex-grow text-2xl font-bold"
           >
             Transformers
