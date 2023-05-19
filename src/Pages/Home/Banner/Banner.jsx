@@ -14,9 +14,9 @@ import toy8 from "../../../assets/toy8.png";
 
 const Banner = () => {
   return (
-    <div className="grid grid-cols-2 items-center h-[700px] bg-red-50 px-52">
-      <div>
-        <h2 className="text-7xl font-bold">
+    <div className="md:grid md:grid-cols-2 py-10 md:py-0 items-center md:h-[700px] bg-red-50 px-5 md:px-52">
+      <div className="py-5 md:py-0">
+        <h2 className="md:text-7xl text-2xl font-bold">
           ToyTree: Explore our top picks for endless fun!
         </h2>
         <p className="flex items-center text-lg gap-2 my-5">

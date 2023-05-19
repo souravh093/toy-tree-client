@@ -14,7 +14,7 @@ const Header = () => {
         <Link to="/allToys">All Toys</Link>
       </li>
       {user && (
-        <div className="flex">
+        <div className="md:flex">
           <li>
             <Link to="/myToys">My Toys</Link>
           </li>
@@ -90,13 +90,12 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navigation}
-            {authenticationMenu}
           </ul>
         </div>
         <div className="flex items-center gap-2">
-          <img className="w-10" src={logo} alt="" />
+          <img className="md:w-10 w-8" src={logo} alt="" />
           <Link to="/">
-            <h2 className="font-bold text-3xl text-gray-700">ToyTree</h2>
+            <h2 className="font-bold text-xl md:text-3xl text-gray-700">ToyTree</h2>
           </Link>
         </div>
       </div>

@@ -6,10 +6,10 @@ import gallery4 from "../../../assets/gallery4.png";
 
 const Gallery = () => {
   return (
-    <div className="px-52 my-24">
+    <div className="md:px-52 px-5 my-24">
       <div className="text-center mb-10">
-        <h2 className="text-6xl font-bold mb-3 text-gray-600">Our Toys Gallery</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">Here some discount to our toys you can buy this toys. Discount date is available only 2 more days buy now </p>
+        <h2 className="md:text-6xl text-2xl font-bold mb-3 text-gray-600">Our Toys Gallery</h2>
+        <p className="md:text-lg text-xs text-gray-600 max-w-2xl mx-auto">Here some discount to our toys you can buy this toys. Discount date is available only 2 more days buy now </p>
       </div>
       <div className="grid grid-cols-2">
         <div>

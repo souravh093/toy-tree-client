@@ -34,8 +34,8 @@ const UpdateToy = () => {
       });
   };
   return (
-    <div className="min-h-screen  bg-gray-200 flex justify-center items-center">
-      <div className="bg-white w-6/12 p-8 rounded-md shadow-lg">
+    <div className="min-h-screen py-10 bg-gray-200 flex justify-center items-center">
+      <div className="bg-white md:w-6/12 p-8 rounded-md shadow-lg">
         <h2 className="text-2xl font-semibold mb-6">Update Toy Information</h2>
         <h2 className="text-2xl font-semibold mb-6 bg-orange-400 py-2 px-3 text-white rounded-md inline-block">
           Toy Name: {name}

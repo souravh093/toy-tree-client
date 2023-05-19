@@ -53,12 +53,12 @@ const Category = () => {
   }
 
   return (
-    <div className="px-52 mb-24">
+    <div className="px-5 md:px-52 mb-24">
       <div className="text-center mb-10">
-        <h2 className="text-6xl font-bold mb-3 text-gray-600">
+        <h2 className="text-2xl md:text-6xl font-bold mb-3 text-gray-600">
           Shop by Category
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xs md:text-lg text-gray-600 max-w-2xl mx-auto">
           You can buy toy what you want. We are providing to which category toy
           your needed
         </p>

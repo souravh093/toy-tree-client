@@ -13,7 +13,7 @@ const AllToys = () => {
       .then((data) => setToys(data));
   };
   return (
-    <div className="px-52 min-h-[calc(100vh-299px)]">
+    <div className="px-5 md:px-52 min-h-[calc(100vh-299px)]">
       <div className="form-control my-5">
         <div className="input-group">
           <input

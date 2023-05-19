@@ -38,7 +38,7 @@ const MyToys = () => {
     });
   };
   return (
-    <div className="px-52 min-h-[calc(100vh-299px)]">
+    <div className="px-5 md:px-52 min-h-[calc(100vh-299px)]">
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
           <thead>
