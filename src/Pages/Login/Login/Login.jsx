@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        toast.success("Successfully Logins")
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));
@@ -28,6 +30,7 @@ const Login = () => {
       .then((result) => {
         const googLogged = result.user;
         console.log(googLogged);
+        toast.success("Successfully Logins")
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));

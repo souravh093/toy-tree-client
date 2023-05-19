@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import SingleRow from "../AllToys/SingleRow/SingleRow";
+import MyToySingleRow from "../AddToy/MyToySingleRow/MyToySingleRow";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -10,8 +11,34 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   }, [user]);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/delete/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your coffee has been deleted.", "success");
+              const remaining = myToys.filter((user) => user._id !== id);
+              setMyToys(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
-    <div className="px-52">
+    <div className="px-52 min-h-[calc(100vh-299px)]">
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
           <thead>
@@ -27,7 +54,7 @@ const MyToys = () => {
           </thead>
           <tbody>
             {myToys.map((data, index) => (
-              <SingleRow key={data._id} index={index} data={data} />
+              <MyToySingleRow handleDelete={handleDelete} key={data._id} index={index} data={data} />
             ))}
           </tbody>
         </table>
