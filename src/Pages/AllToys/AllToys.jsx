@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleRow from "./SingleRow/SingleRow";
 
 const AllToys = () => {
   const allData = useLoaderData();
+  const [searchKey, setSearchKey] = useState("");
+  const [toys, setToys] = useState(allData);
+
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/searchByTitle/${searchKey}`)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  };
   return (
     <div className="px-52">
       <div className="form-control my-5">
         <div className="input-group">
           <input
+            onChange={(e) => setSearchKey(e.target.value)}
             type="text"
             placeholder="Search…"
             className="input input-bordered"
           />
-          <button className="btn btn-warning text-white btn-square">
+          <button
+            onClick={handleSearch}
+            className="btn btn-warning text-white btn-square"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -45,7 +57,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {allData.map((data, index) => (
+            {toys.map((data, index) => (
               <SingleRow key={data._id} index={index} data={data} />
             ))}
           </tbody>
