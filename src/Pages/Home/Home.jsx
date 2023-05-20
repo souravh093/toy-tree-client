@@ -4,6 +4,7 @@ import Gallery from "./Gallery/Gallery";
 import Category from "./Category/Category";
 import useTitle from "../../hooks/useTitle";
 import Trending from "./Tranding/Trending";
+import TopRated from "./TopRated/TopRated";
 
 const Home = () => {
   useTitle('Home')
@@ -13,6 +14,7 @@ const Home = () => {
       <Gallery />
       <Category />
       <Trending />
+      <TopRated />
     </>
   );
 };

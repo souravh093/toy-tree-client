@@ -71,7 +71,7 @@ const Trending = () => {
                     <img
                       src={photoUrl}
                       alt="Shoes"
-                      className="h-96 object-contain bg-red-50"
+                      className="h-96 w-full object-contain bg-red-50"
                     />
                   </figure>
                   <div className="card-body">

@@ -13,7 +13,7 @@ const MyToys = () => {
       .then((data) => setMyToys(data));
   }, [user]);
 
-  useTitle('MyToys')
+  useTitle("MyToys");
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -40,8 +40,30 @@ const MyToys = () => {
       }
     });
   };
+
+  const handleSortAscending = async () => {
+    const sortedProducts = [...myToys].sort((a, b) => a.price - b.price);
+    setMyToys(sortedProducts);
+  };
+
+  const handleSortDescending = async () => {
+    const sortedProducts = [...myToys].sort((a, b) => b.price - a.price);
+    setMyToys(sortedProducts);
+  };
+
+
+  const handleUpdate = async(id, data) => {
+    console.log(id, data)
+  }
+
+
+
   return (
     <div className="px-5 md:px-52 min-h-[calc(100vh-299px)]">
+      <div className="flex gap-5 my-4">
+        <button onClick={handleSortAscending} className="btn btn-error">Price Low to High</button>
+        <button onClick={handleSortDescending} className="btn btn-error">Price High to Low</button>
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
           <thead>
@@ -57,7 +79,13 @@ const MyToys = () => {
           </thead>
           <tbody>
             {myToys.map((data, index) => (
-              <MyToySingleRow handleDelete={handleDelete} key={data._id} index={index} data={data} />
+              <MyToySingleRow
+                handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
+                key={data._id}
+                index={index}
+                data={data}
+              />
             ))}
           </tbody>
         </table>
