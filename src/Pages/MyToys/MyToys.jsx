@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyToySingleRow from "../AddToy/MyToySingleRow/MyToySingleRow";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -11,6 +12,8 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   }, [user]);
+
+  useTitle('MyToys')
 
   const handleDelete = (id) => {
     Swal.fire({

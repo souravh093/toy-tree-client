@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleRow from "./SingleRow/SingleRow";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const allData = useLoaderData();
   const [searchKey, setSearchKey] = useState("");
   const [toys, setToys] = useState(allData);
+
+  useTitle('AllToys')
 
   const handleSearch = () => {
     fetch(`https://toy-tree-server.vercel.app/searchByTitle/${searchKey}`)
