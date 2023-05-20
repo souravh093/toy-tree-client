@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -9,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const { signInUser, googleSignInUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   useTitle('Login')
 
@@ -25,7 +26,7 @@ const Login = () => {
         toast.success("Successfully Logins")
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setError(error.message));
   };
 
   const handleGoogleLogin = () => {
@@ -91,6 +92,7 @@ const Login = () => {
             Register here
           </Link>
         </p>
+        <h2 className="text-red-500 font-semibold">{error}</h2>
       </div>
     </div>
   );

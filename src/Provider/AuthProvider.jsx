@@ -48,16 +48,18 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const updateUserProfile = (name, url) => {
-    return updateProfile(auth.currentUser, {
+  const updateUserProfile = async (name, url) => {
+    const object = {
       displayName: name,
       photoURL: url,
-    });
+    };
+    await updateProfile(auth.currentUser, object);
+    setUser((user) => ({ ...user, ...object }));
   };
   const authInfo = {
     user,
     loading,
-    createUser, 
+    createUser,
     signInUser,
     googleSignInUser,
     logoutUser,

@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useTitle from "../../../hooks/useTitle";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
-  useTitle('Register')
+  useTitle("Register");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,17 +20,16 @@ const Register = () => {
     const password = form.password.value;
     const url = form.photoUrl.value;
 
+
     createUser(email, password)
       .then((result) => {
         const newUser = result.user;
         console.log(newUser);
-        updateUserProfile(name, url)
-          .then((result) => {
-            const updateUser = result.user;
-            console.log(updateUser);
-          })
+        updateUserProfile(name, url).then(() => {});
+        toast.success("successfully Registered");
+        navigate("/");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-74.81px)] bg-gray-100">
@@ -94,6 +97,7 @@ const Register = () => {
             Login here
           </Link>
         </p>
+        <h2 className="text-red-500 font-semibold">{error}</h2>
       </div>
     </div>
   );

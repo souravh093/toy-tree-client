@@ -12,22 +12,29 @@ import toy6 from "../../../assets/toy6.png";
 import toy7 from "../../../assets/toy7.png";
 import toy8 from "../../../assets/toy8.png";
 
-
 const gradientBg = {
-  backgroundColor: 'rgb(224, 231, 255)',
+  backgroundColor: "rgb(224, 231, 255)",
   backgroundImage:
-    'radial-gradient(at 54% 54%, rgb(229, 229, 229) 0, transparent 70%), ' +
-    'radial-gradient(at 6% 91%, rgb(236, 252, 203) 0, transparent 67%), ' +
-    'radial-gradient(at 3% 64%, rgb(194, 65, 12) 0, transparent 45%), ' +
-    'radial-gradient(at 69% 78%, rgb(30, 64, 175) 0, transparent 59%), ' +
-    'radial-gradient(at 17% 88%, rgb(212, 212, 212) 0, transparent 14%), ' +
-    'radial-gradient(at 91% 95%, rgb(244, 63, 94) 0, transparent 62%)'
+    "radial-gradient(at 54% 54%, rgb(229, 229, 229) 0, transparent 70%), " +
+    "radial-gradient(at 6% 91%, rgb(236, 252, 203) 0, transparent 67%), " +
+    "radial-gradient(at 3% 64%, rgb(194, 65, 12) 0, transparent 45%), " +
+    "radial-gradient(at 69% 78%, rgb(30, 64, 175) 0, transparent 59%), " +
+    "radial-gradient(at 17% 88%, rgb(212, 212, 212) 0, transparent 14%), " +
+    "radial-gradient(at 91% 95%, rgb(244, 63, 94) 0, transparent 62%)",
 };
 
 const Banner = () => {
   return (
-    <div style={gradientBg} className="md:grid md:grid-cols-2 py-10 md:py-0 items-center md:h-[700px] px-5 md:px-52">
-      <div className="py-5 md:py-0">
+    <div
+      style={gradientBg}
+      className="md:grid md:grid-cols-2 py-10 md:py-0 items-center md:h-[700px] px-5 md:px-52"
+    >
+      <div
+        className="py-5 md:py-0"
+        data-aos="fade-right"
+        data-aos-offset="500"
+        data-aos-duration="1000"
+      >
         <h2 className="md:text-7xl text-2xl font-bold">
           ToyTree: Explore our top picks for endless fun!
         </h2>
@@ -39,7 +46,7 @@ const Banner = () => {
           Get Started
         </button>
       </div>
-      <div>
+      <div data-aos="fade-left" data-aos-offset="500" data-aos-duration="1000">
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -84,5 +91,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-

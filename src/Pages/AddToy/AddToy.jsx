@@ -87,7 +87,6 @@ const AddToy = () => {
               defaultValue={user.displayName}
               className="w-full border border-gray-300 rounded-md px-4 py-2"
               required
-              disabled
             />
           </div>
           <div>
@@ -101,7 +100,6 @@ const AddToy = () => {
               defaultValue={user.email}
               className="w-full border border-gray-300 rounded-md px-4 py-2"
               required
-              disabled
             />
           </div>
           <div>
