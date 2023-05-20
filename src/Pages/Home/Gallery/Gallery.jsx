@@ -12,20 +12,20 @@ const Gallery = () => {
         <p className="md:text-lg text-xs text-gray-600 max-w-2xl mx-auto">Here some discount to our toys you can buy this toys. Discount date is available only 2 more days buy now </p>
       </div>
       <div className="grid grid-cols-2">
-        <div>
-          <img src={gallery1} alt="" />
+        <div className="relative overflow-hidden bg-cover bg-no-repeat">
+          <img className="transition duration-300 ease-in-out hover:scale-110 cursor-pointer" src={gallery1} alt="" />
         </div>
         <div>
           <div className="grid grid-cols-2">
-            <div>
-              <img className="h-full object-cover" src={gallery2} alt="" />
+            <div className="relative overflow-hidden bg-cover bg-no-repeat">
+              <img className="h-full object-cover transition duration-300 ease-in-out hover:scale-110 cursor-pointer" src={gallery2} alt="" />
             </div>
-            <div>
-              <img src={gallery4} alt="" />
+            <div className="relative overflow-hidden bg-cover bg-no-repeat">
+              <img className="transition duration-300 ease-in-out hover:scale-110 cursor-pointer" src={gallery4} alt="" />
             </div>
           </div>
-          <div>
-            <img src={gallery3} alt="" />
+          <div className="relative overflow-hidden bg-cover bg-no-repeat">
+            <img className="transition duration-300 ease-in-out hover:scale-110 cursor-pointer" src={gallery3} alt="" />
           </div>
         </div>
       </div>

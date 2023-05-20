@@ -8,7 +8,7 @@ const AllToys = () => {
   const [toys, setToys] = useState(allData);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/searchByTitle/${searchKey}`)
+    fetch(`https://toy-tree-server.vercel.app/searchByTitle/${searchKey}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   };

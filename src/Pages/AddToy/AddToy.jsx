@@ -31,19 +31,19 @@ const AddToy = () => {
     };
     console.log(newToy);
 
-    fetch('http://localhost:5000/addToys', {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(newToy)
+    fetch("https://toy-tree-server.vercel.app/addToys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newToy),
     })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            form.reset()
-            toast.success('Successfully add Toy')
-        })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        form.reset();
+        toast.success("Successfully add Toy");
+      });
   };
   return (
     <div className="flex py-10 items-center justify-center min-h-screen bg-gray-100">
@@ -82,7 +82,7 @@ const AddToy = () => {
               type="text"
               id="sellerName"
               name="sellerName"
-              defaultValue={user.displayName}    
+              defaultValue={user.displayName}
               className="w-full border border-gray-300 rounded-md px-4 py-2"
               required
               disabled
