@@ -52,10 +52,6 @@ const MyToys = () => {
   };
 
 
-  const handleUpdate = async(id, data) => {
-    console.log(id, data)
-  }
-
 
 
   return (
@@ -81,7 +77,6 @@ const MyToys = () => {
             {myToys.map((data, index) => (
               <MyToySingleRow
                 handleDelete={handleDelete}
-                handleUpdate={handleUpdate}
                 key={data._id}
                 index={index}
                 data={data}

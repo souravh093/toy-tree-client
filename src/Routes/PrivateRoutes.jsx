@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const PrivateRoutes = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
+
+  useEffect(() => {
+    if (!user) {
+      toast.error("You have to log in first to view details");
+    }
+  }, [user]);
 
   if (loading) {
     return (
@@ -25,6 +32,8 @@ const PrivateRoutes = ({ children }) => {
       </div>
     );
   }
+
+  
 
   if (user?.email) {
     return children;

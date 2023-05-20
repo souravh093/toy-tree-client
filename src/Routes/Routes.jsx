@@ -10,7 +10,6 @@ import PrivateRoutes from "./PrivateRoutes";
 import Details from "../Pages/Details/Details";
 import MyToys from "../Pages/MyToys/MyToys";
 import Blog from "../Pages/Blog/Blog";
-import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 const router = createBrowserRouter([
     {
@@ -51,11 +50,6 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog />
-            },
-            {
-                path: '/update/:id',
-                element: <UpdateToy />,
-                loader: ({params}) => fetch(`https://toy-tree-server.vercel.app/update/${params.id}`)
             }
         ]
     }

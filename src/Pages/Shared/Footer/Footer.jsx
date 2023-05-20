@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         <img className="w-16" src={logo} alt="" />
         <p>
-          Toy-Tree company LTD
+          &copy; Toy-Tree company LTD
           <br />
           Providing reliable tech since 2023
         </p>

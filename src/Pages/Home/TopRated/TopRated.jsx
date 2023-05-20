@@ -10,7 +10,7 @@ const TopRated = () => {
       .then((data) => setToys(data));
   }, []);
   return (
-    <div className="md:px-52 px-5 pb-20">
+    <div className="md:px-52 px-5 pt-20 md:pt-0 pb-20">
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-6xl font-bold mb-3 text-gray-600">
           Top Rated Toys
@@ -20,8 +20,8 @@ const TopRated = () => {
           it most rating this toys.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-5">
-        <div className="grid grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           {sliceData.map((data) => {
             const { _id, name, photoUrl, price, rating } = data;
             return (
@@ -40,7 +40,7 @@ const TopRated = () => {
                 <div>
                   <h2 className="text-lg font-semibold">{name}</h2>
                   <p>Rating: ⭐{rating}</p>
-                  <p className="text-sky-400 font-bold text-lg">
+                  <p className="text-orange-400 font-bold text-lg">
                     Price: ${price}
                   </p>
                 </div>
