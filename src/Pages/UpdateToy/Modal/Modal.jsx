@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import useTitle from "../../../hooks/useTitle";
 
 const Modal = ({ id, onClose }) => {
+  useTitle('UpdateToys')
   const [allData, setAllDates] = useState([]);
   useEffect(() => {
     fetch("https://toy-tree-server.vercel.app/toys")
